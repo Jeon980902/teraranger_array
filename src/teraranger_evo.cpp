@@ -26,6 +26,11 @@ TerarangerHubEvo::TerarangerHubEvo()
 
   // Publishers
   range_publisher_ = nh_.advertise<teraranger_array::RangeArray>("ranges", 1);
+  range_0_pub_ = nh_.advertise<sensor_msgs::Range>("range0", 1);
+  range_1_pub_ = nh_.advertise<sensor_msgs::Range>("range1", 1);
+  range_6_pub_ = nh_.advertise<sensor_msgs::Range>("range6", 1);
+  range_7_pub_ = nh_.advertise<sensor_msgs::Range>("range7", 1);
+
   imu_publisher_ = nh_.advertise<sensor_msgs::Imu>("imu_quat", 1);
   euler_publisher_ = nh_.advertise<geometry_msgs::Vector3Stamped>("imu_euler", 1);
 
@@ -542,6 +547,10 @@ void TerarangerHubEvo::processRangeFrame(uint8_t* input_buffer, int seq_ctr)
     }
     range_array_msg.header.seq = (int)seq_ctr/8;
     range_array_msg.header.stamp = ros::Time::now();
+    range_0_pub_.publish(range_array_msg.ranges[0]);
+    range_1_pub_.publish(range_array_msg.ranges[1]);
+    range_6_pub_.publish(range_array_msg.ranges[6]);
+    range_7_pub_.publish(range_array_msg.ranges[7]);
     range_publisher_.publish(range_array_msg);
   }
   else

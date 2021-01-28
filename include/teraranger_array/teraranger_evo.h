@@ -114,6 +114,10 @@ private:
   teraranger_array::RangeArray range_array_msg;
   sensor_msgs::Imu imu_msg;
   geometry_msgs::Vector3Stamped euler_msg;
+  ros::Publisher range_0_pub_;
+  ros::Publisher range_1_pub_;
+  ros::Publisher range_6_pub_;
+  ros::Publisher range_7_pub_;
 
   void processRangeFrame(uint8_t* input_buffer, int seq_ctr);
   void processImuFrame(uint8_t* input_buffer, int seq_ctr);
