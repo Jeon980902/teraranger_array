@@ -28,6 +28,9 @@ TerarangerHubEvo::TerarangerHubEvo()
   range_publisher_ = nh_.advertise<teraranger_array::RangeArray>("ranges", 1);
   range_0_pub_ = nh_.advertise<sensor_msgs::Range>("range0", 1);
   range_1_pub_ = nh_.advertise<sensor_msgs::Range>("range1", 1);
+  range_2_pub_ = nh_.advertise<sensor_msgs::Range>("range1", 1);
+
+  range_5_pub_ = nh_.advertise<sensor_msgs::Range>("range1", 1);
   range_6_pub_ = nh_.advertise<sensor_msgs::Range>("range6", 1);
   range_7_pub_ = nh_.advertise<sensor_msgs::Range>("range7", 1);
 
@@ -549,6 +552,9 @@ void TerarangerHubEvo::processRangeFrame(uint8_t* input_buffer, int seq_ctr)
     range_array_msg.header.stamp = ros::Time::now();
     range_0_pub_.publish(range_array_msg.ranges[0]);
     range_1_pub_.publish(range_array_msg.ranges[1]);
+    range_2_pub_.publish(range_array_msg.ranges[2]);
+
+    range_5_pub_.publish(range_array_msg.ranges[5]);
     range_6_pub_.publish(range_array_msg.ranges[6]);
     range_7_pub_.publish(range_array_msg.ranges[7]);
     range_publisher_.publish(range_array_msg);
