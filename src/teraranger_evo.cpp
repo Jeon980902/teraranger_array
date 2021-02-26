@@ -28,9 +28,9 @@ TerarangerHubEvo::TerarangerHubEvo()
   range_publisher_ = nh_.advertise<teraranger_array::RangeArray>("ranges", 1);
   range_0_pub_ = nh_.advertise<sensor_msgs::Range>("range0", 1);
   range_1_pub_ = nh_.advertise<sensor_msgs::Range>("range1", 1);
-  range_2_pub_ = nh_.advertise<sensor_msgs::Range>("range1", 1);
+  range_2_pub_ = nh_.advertise<sensor_msgs::Range>("range2", 1);
 
-  range_5_pub_ = nh_.advertise<sensor_msgs::Range>("range1", 1);
+  range_5_pub_ = nh_.advertise<sensor_msgs::Range>("range5", 1);
   range_6_pub_ = nh_.advertise<sensor_msgs::Range>("range6", 1);
   range_7_pub_ = nh_.advertise<sensor_msgs::Range>("range7", 1);
 

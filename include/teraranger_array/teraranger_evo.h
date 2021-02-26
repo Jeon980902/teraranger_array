@@ -117,6 +117,7 @@ private:
   ros::Publisher range_0_pub_;
   ros::Publisher range_1_pub_;
   ros::Publisher range_2_pub_;
+  
   ros::Publisher range_5_pub_;
   ros::Publisher range_6_pub_;
   ros::Publisher range_7_pub_;
